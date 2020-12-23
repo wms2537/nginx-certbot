@@ -2,6 +2,8 @@ version: '3'
 
 services:
   nginx:
+    depends_on: 
+      - auth_backend
     image: nginx:latest
     restart: unless-stopped
     volumes:
