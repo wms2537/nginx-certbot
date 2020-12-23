@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: nginx:1.15-alpine
+    image: nginx:latest
     restart: unless-stopped
     volumes:
       - ./nginx:/etc/nginx/conf.d
@@ -13,7 +13,7 @@ services:
       - "443:443"
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
   auth_backend:
-    image: wms2537/nodejs-jwt-auth
+    image: wms2537/nodejs-jwt-auth:latest
   certbot:
     image: certbot/certbot
     restart: unless-stopped
